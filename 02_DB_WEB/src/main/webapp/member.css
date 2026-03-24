@@ -1,0 +1,51 @@
+/* 기본 폰트 및 배경 설정 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 테이블 디자인 */
+.member-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden; /* 모서리 둥글게 처리 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.member-table thead {
+    background-color: #3498db;
+    color: white;
+}
+
+.member-table th, .member-table td {
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* 마우스를 올렸을 때 행 하이라이트 */
+.member-table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: 0.3s;
+}
+
+/* 마지막 줄 밑줄 제거 */
+.member-table tbody tr:last-child td {
+    border-bottom: none;
+}

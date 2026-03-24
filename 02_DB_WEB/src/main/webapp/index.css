@@ -1,0 +1,90 @@
+/* (기존 body, container 설정 유지) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px; /* 폼은 조금 더 좁게 잡는 게 예쁩니다 */
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 폼 카드 스타일 */
+.form-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* 버튼 스타일 */
+button {
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+}
+
+.nav-section {
+    text-align: center;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #3498db;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.btn-secondary:hover {
+    color: #2980b9;
+}
