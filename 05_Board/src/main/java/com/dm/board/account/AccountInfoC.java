@@ -7,24 +7,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/user-login")
-public class AccountC extends HttpServlet {
+@WebServlet("/user-info")
+public class AccountInfoC extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //로그아웃 - 세션죽이기
-        AccountDAO.ADAO.logout(request);
-        //어디로 갈지?
-       response.sendRedirect("HC");
+        //mypage - session에 다 있기 때문에 굳이 조회할 필요가 없다!
 
+        //어디로 갈지?
+        if(AccountDAO.ADAO.loginCheck(request)){
+        request.setAttribute("content","jsp/account/mypage.jsp");
+
+        }else{
+        request.setAttribute("content","home.jsp");
+
+        }
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    //하는일
-        AccountDAO.ADAO.login(request);
-    //어디로?
-    AccountDAO.ADAO.loginCheck(request);
-    request.setAttribute("content","home.jsp");
-    request.getRequestDispatcher("index.jsp").forward(request,response);
+
 
     }
 

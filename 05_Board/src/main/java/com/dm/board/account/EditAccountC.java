@@ -1,7 +1,4 @@
-package com.dm.board.movie;
-
-import com.dm.board.account.AccountDAO;
-import com.oreilly.servlet.MultipartRequest;
+package com.dm.board.account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +7,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/edit")
-public class MovieUpdateImgC extends HttpServlet {
+@WebServlet("/edit-user")
+public class EditAccountC extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        MovieDAO.MDAO.getMovie(request);
-        AccountDAO.ADAO.loginCheck(request);
-        request.setAttribute("content", "jsp/movie/movie_edit.jsp");
+        //수정하러 보내기
+        if (AccountDAO.ADAO.loginCheck(request)) {
+            request.setAttribute("content", "jsp/account/edit_account.jsp");
+        } else {
+            request.setAttribute("content", "home.jsp");
+        }
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    MovieDAO.MDAO.editImgMovie(request);
-        AccountDAO.ADAO.loginCheck(request);
-    response.sendRedirect("detail-movie?no="+request.getAttribute("noo"));
+
+        //어디로 갈지?
+        if (AccountDAO.ADAO.loginCheck(request)) {
+            AccountDAO.ADAO.editUser(request);
+        }
+        response.sendRedirect("user-info");
+
     }
 
     public void destroy() {

@@ -14,10 +14,12 @@ public class DBManager {
             if (rs != null) {
                 rs.close();
             }
+            if (ps != null) {
                 ps.close();
-
+            }
+            if (con != null) {
                 con.close();
-
+            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);

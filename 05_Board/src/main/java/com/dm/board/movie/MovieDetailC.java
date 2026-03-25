@@ -15,7 +15,7 @@ public class MovieDetailC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         MovieDAO.MDAO.getMovie(request);
-        AccountDAO.loginCheck(request);
+        AccountDAO.ADAO.loginCheck(request);
         request.setAttribute("content", "jsp/movie/movie_detail.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }

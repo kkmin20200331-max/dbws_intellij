@@ -24,13 +24,13 @@ public class MovieC extends HttpServlet {
         }
 
         MovieDAO.MDAO.paging(page,request);
-        AccountDAO.loginCheck(request);
+        AccountDAO.ADAO.loginCheck(request);
         request.setAttribute("content","jsp/movie/movie.jsp");
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     MovieDAO.MDAO.addMovie(request);
-        AccountDAO.loginCheck(request);
+        AccountDAO.ADAO.loginCheck(request);
     response.sendRedirect("movie");
     }
 

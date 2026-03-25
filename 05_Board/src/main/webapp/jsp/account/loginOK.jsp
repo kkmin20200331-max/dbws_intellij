@@ -5,6 +5,6 @@
 </head>
 <body>
 ${sessionScope.user.id}(${sessionScope.user.name}) 님 환영합니다. <br>
-<button>mypage</button> <button onclick="location.href='user-login'">logout</button>
+<button onclick="location.href='user-info'">mypage</button> <button onclick="location.href='user-login'">logout</button>
 </body>
 </html>

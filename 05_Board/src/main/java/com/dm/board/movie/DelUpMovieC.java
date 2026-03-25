@@ -17,11 +17,11 @@ public class DelUpMovieC extends HttpServlet {
 
         if(request.getParameter("type")!=null && request.getParameter("type").equals("d")) {
             MovieDAO.MDAO.delMovie(request);
-            AccountDAO.loginCheck(request);
+            AccountDAO.ADAO.loginCheck(request);
             response.sendRedirect("movie");
         }else{
             MovieDAO.MDAO.updateMovie(request);
-            AccountDAO.loginCheck(request);
+            AccountDAO.ADAO.loginCheck(request);
             response.sendRedirect("movie");
         }
 

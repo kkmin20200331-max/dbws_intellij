@@ -7,25 +7,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/user-login")
-public class AccountC extends HttpServlet {
+@WebServlet("/del-user")
+public class DeleteAccountC extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        //로그아웃 - 세션죽이기
-        AccountDAO.ADAO.logout(request);
+        //what?
+        AccountDAO.ADAO.delUser(request);
         //어디로 갈지?
-       response.sendRedirect("HC");
 
+        response.sendRedirect("HC");
     }
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    //하는일
-        AccountDAO.ADAO.login(request);
-    //어디로?
-    AccountDAO.ADAO.loginCheck(request);
-    request.setAttribute("content","home.jsp");
-    request.getRequestDispatcher("index.jsp").forward(request,response);
 
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        if (AccountDAO.ADAO.delUser(request)==1) {
+
+            response.sendRedirect("HC");
+        } else {
+            response.sendRedirect("user-info");
+        }
     }
 
     public void destroy() {
