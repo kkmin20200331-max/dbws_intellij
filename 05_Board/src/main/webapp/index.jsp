@@ -6,6 +6,7 @@
     <title>JSP - Hello World</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="css/review.css">
     <script src="jsp/movie/UpDelMovie.js"></script>
 </head>
 <body>

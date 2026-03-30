@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/review")
-public class ReviewC extends HttpServlet {
+@WebServlet("/review-add")
+public class ReviewAddC extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-            //전체 조회하는 일
-        ReviewDAO.RDAO.showAllReview(request);
-
-
-
         AccountDAO.ADAO.loginCheck(request);
-        request.setAttribute("content","jsp/review/review.jsp");
+        request.setAttribute("content","jsp/review/review_add.jsp");
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        ReviewDAO.RDAO.addReview(request);
+
+
+
+        response.sendRedirect("review");
 
     }
 
