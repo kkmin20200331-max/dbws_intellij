@@ -1,7 +1,6 @@
 package com.dm.board.review;
 
 import com.dm.board.account.AccountDAO;
-import com.dm.board.movie.MovieDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,26 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/review")
-public class ReviewC extends HttpServlet {
+@WebServlet("/review-detail")
+public class ReviewDetailC extends HttpServlet {
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             //전체 조회하는 일
-        ReviewDAO.RDAO.showAllReview(request);
+        ReviewDAO.RDAO.getReview(request);
 
-        String p = request.getParameter("p");
 
-        int page =1;
-        if (p != null) {
-            page = Integer.parseInt(p);
-            System.out.println(page);
-        }
-
-        ReviewDAO.RDAO.paging(page,request);
 
         AccountDAO.ADAO.loginCheck(request);
-        request.setAttribute("content","jsp/review/review.jsp");
+        request.setAttribute("content","jsp/review/review_detail.jsp");
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

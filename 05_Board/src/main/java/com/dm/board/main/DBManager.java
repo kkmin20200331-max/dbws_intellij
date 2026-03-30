@@ -15,10 +15,10 @@ public class DBManager {
                 rs.close();
             }
             if (ps != null) {
-                ps.close();
+//                ps.close();
             }
             if (con != null) {
-                con.close();
+//                con.close();
             }
 
         } catch (Exception e) {

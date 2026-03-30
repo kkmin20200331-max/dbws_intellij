@@ -15,12 +15,52 @@
         <c:forEach var="r" items="${reviews}">
             <div class="review-row">
                 <div>
-                    <span>${r.title }</span>
+                    <span onclick="location.href='review-detail?no=${r.no}'">${r.title }</span>
                 </div>
                 <div>${r.date }</div>
             </div>
         </c:forEach>
     </div>
+</div>
+
+
+<div>
+    <c:choose>
+        <c:when test="${currentPage==1}">
+            <button class="movie-btn pn shake">prev</button>
+        </c:when>
+        <c:otherwise>
+            <button class="movie-btn pn" onclick="location.href='review?p=${currentPage-1}'">prev</button>
+        </c:otherwise>
+    </c:choose>
+    <c:choose>
+        <c:when test="${totalPage != currentPage }">
+            <button class="movie-btn pn" onclick="location.href='review?p=${currentPage+1}'">next</button>
+        </c:when>
+        <c:otherwise>
+            <button class="movie-btn pn shake">next</button>
+        </c:otherwise>
+    </c:choose>
+</div>
+</div>
+
+
+
+<div>
+    <a href="review">[start]</a>
+    <c:forEach begin="1" end="${totalPage}"  var="i">
+        <c:choose>
+            <c:when test="${i==currentPage}">
+                <a href="review?p=${i}" style="color: red">[${i}]</a>
+            </c:when>
+            <c:otherwise>
+                <a href="review?p=${i}">[${i}]</a>
+            </c:otherwise>
+        </c:choose>
+
+
+    </c:forEach>
+    <a href="review?p=${totalPage}">[end]</a>
 </div>
 </body>
 </html>
